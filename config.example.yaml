@@ -1,0 +1,19 @@
+influxdb:
+  host: "http://influxdb:8086"
+  token: "<influxtoken>"
+  org: "org"
+  bucket: "bucket"
+services:
+  plex:
+    type: "plex"
+    interval: 30
+    config:
+      host: "http://plex:32400"
+      token: "<plextoken>"
+  mcserver:
+    type: "minecraft"
+    interval: 10
+    config:
+      host: "hostname"
+      port: 1234
+      password: "p4ssw0rd"

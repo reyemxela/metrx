@@ -1,0 +1,5 @@
+influxdb-client==1.40.0
+mcrcon==0.7.0
+PyYAML==6.0.1
+requests==2.31.0
+schedule==1.2.1
