@@ -1,3 +1,10 @@
+
+"""This package loads all built-in and custom modules
+
+After importing, run `load_modules()` to populate the MODULES dict with `'name': Module` entries.
+"""
+
+
 import os
 import importlib
 from logging import getLogger
@@ -7,6 +14,11 @@ MODULES = {}
 
 
 def load_modules():
+  """Loads all modules from the `modules/` folder, then from `custom/`.
+  
+  Custom modules will override built-in modules with the same name
+  """
+  
   logger = getLogger(__name__)
 
   mod_dir = os.path.dirname(__file__)

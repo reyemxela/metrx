@@ -43,9 +43,9 @@ def register(name, data, db, dryrun):
 
 def main():
   parser = argparse.ArgumentParser()
-  parser.add_argument('--config', '-c', help='Path to config.yaml')
-  parser.add_argument('--debug', action='store_true')
-  parser.add_argument('--dryrun', action='store_true')
+  parser.add_argument('--config', '-c', help='Path to config.yaml. Defaults to ./config.yaml or /config/config.yaml')
+  parser.add_argument('--debug', action='store_true', help='Turns on debug logging')
+  parser.add_argument('--dryrun', action='store_true', help='Only attempts loading config and registering services, then exits')
   args = parser.parse_args()
 
   configfile = args.config

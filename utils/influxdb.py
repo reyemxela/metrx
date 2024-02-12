@@ -16,7 +16,17 @@ class DB:
     self.api = self.client.write_api(write_options=SYNCHRONOUS)
 
   def write(self, data):
+    """`data` should be a dict in the form:
+
+    ```
+    {
+      'measurement': 'name',
+      'tags': {'tag1': 1},
+      'fields': {'field1': 1},
+      'time': 1
+    }
+    ```
+    `measurement` and `fields` are the only required keys
+    """
+
     self.api.write(bucket=self.bucket, record=Point.from_dict(data))
-  
-  def close(self):
-    self.client.close()
