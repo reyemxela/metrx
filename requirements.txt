@@ -1,5 +1,5 @@
 influxdb-client==1.40.0
-mcrcon==0.7.0
+mcrcon==0.6.0 # >0.6.0 uses signal for timeouts, which doesn't work on non-main threads
 PyYAML==6.0.1
 requests==2.31.0
 schedule==1.2.1
