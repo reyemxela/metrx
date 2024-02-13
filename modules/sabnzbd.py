@@ -21,7 +21,7 @@ class Module:
     downloads = queue['noofslots_total']
     mbleft = float(queue['mbleft'])
     kbpersec = float(queue['kbpersec'])
-    speedlimit = int(queue['speedlimit_abs'])
+    speedlimit = int(queue['speedlimit_abs']) / 1024 # report speedlimit in kbps, to match speed
 
     data = {
       'measurement': self.name,
