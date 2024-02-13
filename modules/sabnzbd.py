@@ -21,6 +21,7 @@ class Module:
     downloads = queue['noofslots_total']
     mbleft = float(queue['mbleft'])
     kbpersec = float(queue['kbpersec'])
+    speedlimit = int(queue['speedlimit_abs'])
 
     data = {
       'measurement': self.name,
@@ -28,6 +29,7 @@ class Module:
         'downloads': downloads,
         'mbleft': mbleft,
         'kbpersec': kbpersec,
+        'speedlimit': speedlimit,
       }
     }
     self.logger.debug(data)
