@@ -22,7 +22,7 @@ class DB:
     self.api = self.client.write_api(write_options=SYNCHRONOUS)
 
   def write(self, name, data):
-    """`data` should be a dict in the form:
+    """`data` should be a dict (or a list of dicts) in the form:
 
     ```
     {
@@ -37,7 +37,7 @@ class DB:
     self.fails.setdefault(name, 0)
 
     try:
-      self.api.write(bucket=self.bucket, record=Point.from_dict(data))
+      self.api.write(bucket=self.bucket, record=data)
     except Exception as e:
       if self.fails[name] < 5:
         if type(e) is ApiException:
