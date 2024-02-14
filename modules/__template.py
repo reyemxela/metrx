@@ -25,7 +25,10 @@ class Module:
     data = {
       'measurement': self.name,
       'tags': {}, # optional
-      'fields': {},
+      'fields': { # make sure to force types for fields:
+        '1': int(1),
+        '2': float(2.0),
+      },
     }
     self.logger.debug(data)
-    self.db.write(data)
+    self.db.write(self.name, data)

@@ -19,18 +19,18 @@ class Module:
       return
     queue = resp.json()['queue']
     downloads = queue['noofslots_total']
-    mbleft = float(queue['mbleft'])
-    kbpersec = float(queue['kbpersec'])
+    mbleft = queue['mbleft']
+    kbpersec = queue['kbpersec']
     speedlimit = int(queue['speedlimit_abs']) / 1024 # report speedlimit in kbps, to match speed
 
     data = {
       'measurement': self.name,
       'fields': {
-        'downloads': downloads,
-        'mbleft': mbleft,
-        'kbpersec': kbpersec,
-        'speedlimit': speedlimit,
+        'downloads': int(downloads),
+        'mbleft': float(mbleft),
+        'kbpersec': float(kbpersec),
+        'speedlimit': float(speedlimit),
       }
     }
     self.logger.debug(data)
-    self.db.write(data)
+    self.db.write(self.name, data)

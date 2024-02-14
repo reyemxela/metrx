@@ -27,4 +27,4 @@ class Module:
       }
     }
     self.logger.debug(data)
-    self.db.write(data)
+    self.db.write(self.name, data)

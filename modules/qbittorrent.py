@@ -39,12 +39,12 @@ class Module:
     data = {
       'measurement': self.name,
       'fields': {
-        'dl_speed': dl_speed,
-        'dl_limit': dl_limit,
-        'up_speed': up_speed,
-        'up_limit': up_limit,
+        'dl_speed': int(dl_speed),
+        'dl_limit': int(dl_limit),
+        'up_speed': int(up_speed),
+        'up_limit': int(up_limit),
         'torrent_count': torrent_count,
       },
     }
     self.logger.debug(data)
-    self.db.write(data)
+    self.db.write(self.name, data)
