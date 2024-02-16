@@ -29,7 +29,7 @@ class Module:
         'downloads': int(downloads),
         'mbleft': float(mbleft),
         'kbpersec': float(kbpersec),
-        'speedlimit': float(speedlimit),
+        'speedlimit': int(speedlimit),
       }
     }
     self.logger.debug(data)
