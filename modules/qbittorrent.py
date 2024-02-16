@@ -16,7 +16,9 @@ class Module:
 
   def run(self):
     if not self.loggedin:
-      self.session.get(f'{self.host}/api/v2/auth/login', params={'username': self.username, 'password': self.password})
+      resp = self.session.get(f'{self.host}/api/v2/auth/login', params={'username': self.username, 'password': self.password})
+      if not resp:
+        return
       self.loggedin = True
 
     resp = self.session.get(f'{self.host}/api/v2/transfer/info')
