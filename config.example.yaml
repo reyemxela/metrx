@@ -16,4 +16,3 @@ services:
     config:
       host: "hostname"
       port: 1234
-      password: "p4ssw0rd"

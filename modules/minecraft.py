@@ -1,4 +1,4 @@
-from mcrcon import MCRcon
+from mcstatus import JavaServer
 from logging import getLogger
 
 class Module:
@@ -9,13 +9,12 @@ class Module:
 
     self.host = config.get('host')
     self.port = config.get('port')
-    self.password = config.get('password')
     
   def run(self):
     try:
-      with MCRcon(host=self.host, password=self.password, port=self.port) as mcr:
-        resp = mcr.command('list')
-      players = int(resp.split()[2])
+      server = JavaServer.lookup(f'{self.host}:{self.port}')
+      status = server.status()
+      players = status.players.online
     except Exception as e:
       self.logger.error(f'{self.name} - {e}')
       return
